@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -206,11 +205,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bI-Br-e2v">
-                                <rect key="frame" x="321" y="99" width="80" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lT9-LI-xsA" customClass="taskCell" customModule="Tasks" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="99" width="414" height="659"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -278,41 +272,36 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVW-iL-WKS">
-                                <rect key="frame" x="49" y="44" width="39" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="+">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" name="AccentColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name=".SFUI-Semibold" family=".AppleSystemUIFont" pointSize="25"/>
-                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                </buttonConfiguration>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3NH-VG-m4T"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6bI-Br-e2v" firstAttribute="top" secondItem="3NH-VG-m4T" secondAttribute="top" constant="11" id="NwJ-t6-Blu"/>
-                            <constraint firstItem="3NH-VG-m4T" firstAttribute="trailing" secondItem="6bI-Br-e2v" secondAttribute="trailing" constant="13" id="R4J-WA-9UD"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Qmf-ii-cCu"/>
+                    <navigationItem key="navigationItem" id="fxc-jv-kmh">
+                        <barButtonItem key="leftBarButtonItem" title="Add Task" id="1QW-YW-7Na">
+                            <connections>
+                                <segue destination="2vI-pt-kFV" kind="show" id="HII-52-MMr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="0m9-v0-nm0">
+                            <connections>
+                                <action selector="signOutPressed:" destination="vIZ-XS-E4Z" id="eXs-gE-6g5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="lT9-LI-xsA" id="3yb-M8-buC"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="signOutSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="FxG-BG-DoJ"/>
-                        <segue destination="3nQ-mk-2pM" kind="presentation" identifier="editTaskSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="ZY1-Md-zdK"/>
+                        <segue destination="3nQ-mk-2pM" kind="show" identifier="editTaskSegue" id="ZY1-Md-zdK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9GR-da-uvZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3357.971014492754" y="95.758928571428569"/>
         </scene>
-        <!--Edit Task View Controller-->
+        <!--Add Task View Controller-->
         <scene sceneID="YTP-Re-ZHi">
             <objects>
-                <viewController storyboardIdentifier="TaskViewController" id="2vI-pt-kFV" customClass="EditTaskViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTaskViewController" id="2vI-pt-kFV" customClass="AddTaskViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NFG-b9-TOl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,27 +330,29 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit"/>
                                 <connections>
+                                    <action selector="addTaskButtonPressed:" destination="2vI-pt-kFV" eventType="touchUpInside" id="Ug6-GV-G9T"/>
                                     <action selector="submitButtonPressed:" destination="2vI-pt-kFV" eventType="touchUpInside" id="9Bj-aE-RwP"/>
                                     <segue destination="ovA-qC-aTM" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="dP0-F6-pTp"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfR-Tx-Xxl">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Add New Task" id="Zeq-R5-orn"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qYC-7U-3dT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="&lt; back" id="UPv-O1-POY">
-                            <connections>
-                                <segue destination="ovA-qC-aTM" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="KaG-5P-fjO"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="UHD-9b-HTJ"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="vHV-XQ-ODI"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="descTF" destination="Rwc-gg-WEB" id="bik-TM-B1F"/>
-                        <outlet property="titleTF" destination="Ugt-dp-wgK" id="HKS-6q-uWk"/>
-                        <outlet property="urlTF" destination="FLc-Py-WcE" id="hiy-8J-TiH"/>
+                        <outlet property="descTF" destination="Rwc-gg-WEB" id="f1F-VU-wm0"/>
+                        <outlet property="titleTF" destination="FLc-Py-WcE" id="yna-Pr-jWs"/>
+                        <outlet property="urlTF" destination="Ugt-dp-wgK" id="wVo-Hq-eax"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7y-4d-tqD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -382,11 +373,39 @@
                     <connections>
                         <segue destination="PgU-6s-odE" kind="relationship" relationship="viewControllers" id="xf3-RL-hNz"/>
                         <segue destination="SsS-RS-sHK" kind="relationship" relationship="viewControllers" id="t9R-gZ-2Iz"/>
+                        <segue destination="QDD-Rp-LHV" kind="relationship" relationship="viewControllers" id="5VB-5R-WQ6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w68-gm-mV3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1537.68115942029" y="95.758928571428569"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="cTQ-JU-lRI">
+            <objects>
+                <viewController id="QDD-Rp-LHV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7J5-A9-DVR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-qI-Sbw">
+                                <rect key="frame" x="-3" y="44" width="421" height="769"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <string key="text">In this application, you can add different healthy tasks that you would like to share with the world. You can add a description and an image address to display</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OBn-Zt-hyh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="About" image="list.bullet.rectangle" catalog="system" id="Pam-6Q-Hsx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r0K-4Y-aYZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="780" y="817"/>
         </scene>
         <!--Profile-->
         <scene sceneID="LsD-20-1pM">
@@ -401,7 +420,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -458,6 +477,13 @@
                                     <segue destination="ovA-qC-aTM" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="01Z-SJ-xaZ"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gh0-Nz-zql">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Edit/Delete Item" id="bxU-AZ-d2H"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xPx-iR-qYY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -469,6 +495,7 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
+                    <navigationItem key="navigationItem" id="Kbe-NX-Ypo"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="descUpdateTF" destination="fte-fU-iya" id="Gcc-kb-TXH"/>
@@ -505,11 +532,9 @@
         <segue reference="FxG-BG-DoJ"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

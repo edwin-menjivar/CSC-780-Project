@@ -17,7 +17,8 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     private var myTasks = [MyTask]()
     private var tasksCollectionRef: CollectionReference!
     @IBOutlet weak var tableView: UITableView!
-    @objc private func SignOutPressed(){
+    
+    @IBAction func signOutPressed(_ sender: UIBarButtonItem) {
         do{
             try FirebaseAuth.Auth.auth().signOut()
         }catch{
@@ -95,6 +96,7 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         vc?.descLabel = self.myTasks[indexPath.row].description
         self.navigationController?.pushViewController(vc!, animated: true)
     }
+    
 }
 
 

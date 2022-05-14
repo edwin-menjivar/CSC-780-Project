@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0217CD30282F91C5007DB2DF /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217CD2F282F91C5007DB2DF /* AddTaskViewController.swift */; };
 		02191A16282D2A9500802A43 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02191A15282D2A9500802A43 /* Networking.swift */; };
 		02191A18282D2B0C00802A43 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02191A17282D2B0C00802A43 /* Models.swift */; };
 		02191A1A282D311900802A43 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02191A19282D311900802A43 /* TasksViewModel.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0217CD2F282F91C5007DB2DF /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		02191A15282D2A9500802A43 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		02191A17282D2B0C00802A43 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		02191A19282D311900802A43 /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				02995583282D1A16001E01A5 /* MainScreenVeiwController.swift */,
 				02254C96282D3C3A007B4A2E /* TaskViewController.swift */,
 				02254CA1282DE581007B4A2E /* EditTaskViewController.swift */,
+				0217CD2F282F91C5007DB2DF /* AddTaskViewController.swift */,
 			);
 			path = SignedIn;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				029954D22818C86E001E01A5 /* SceneDelegate.swift in Sources */,
 				02254CA0282DDCD2007B4A2E /* Extensions.swift in Sources */,
 				02254C97282D3C3A007B4A2E /* TaskViewController.swift in Sources */,
+				0217CD30282F91C5007DB2DF /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
