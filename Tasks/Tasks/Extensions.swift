@@ -17,11 +17,11 @@ import UIKit
 //}
 var imageCache = NSCache<AnyObject, AnyObject> ()
 extension UIImageView {
-    func load(urlString: String) {
-//        if let image = imageCache.object(forKey: urlString as NSString){
-//            self.image = image
-//            return
-//        }
+    func load(urlString : String) {
+        if let image = imageCache.object(forKey: urlString as NSString) as? UIImage{
+            self.image = image
+            return
+        }
         
         guard let url = URL(string: urlString) else{
             return

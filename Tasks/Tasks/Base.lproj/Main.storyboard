@@ -75,7 +75,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
                                 <connections>
                                     <action selector="signInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X1y-fh-F2N"/>
-                                    <segue destination="ovA-qC-aTM" kind="presentation" identifier="SignInSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="90P-Cd-MV0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -97,6 +96,7 @@
                         <outlet property="emailTextField" destination="Gsg-I8-0Td" id="SLg-It-cIn"/>
                         <outlet property="passwordTextField" destination="fhB-5x-DMs" id="Wbb-cR-K90"/>
                         <segue destination="JaV-j7-bOr" kind="presentation" identifier="CreateAccountViewSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="H2n-iy-jrf"/>
+                        <segue destination="ovA-qC-aTM" kind="presentation" identifier="SignInSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="jTe-hT-jFq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -140,8 +140,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up"/>
                                 <connections>
-                                    <action selector="SignUpPressed:" destination="JaV-j7-bOr" eventType="touchUpInside" id="EkU-Xo-kc0"/>
-                                    <action selector="signInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ki-ZV-jA5"/>
+                                    <action selector="signUpPressed:" destination="JaV-j7-bOr" eventType="touchUpInside" id="pHg-xP-TDh"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jA7-h4-xhf">
@@ -192,6 +191,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="TcV-z8-dBL" id="40q-eF-uFC"/>
                         <outlet property="passwordTextField" destination="jA7-h4-xhf" id="so4-Ft-H1q"/>
+                        <segue destination="ovA-qC-aTM" kind="presentation" identifier="signedUpSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="eUh-2h-Kpz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isA-8Z-XPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -267,7 +267,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descLabel" destination="8kd-ii-UjZ" id="8rg-dJ-hA5"/>
-                                            <outlet property="imageOne" destination="8oT-ra-6B4" id="hxv-8g-X8s"/>
+                                            <outlet property="photo" destination="8oT-ra-6B4" id="EM1-3T-aO9"/>
                                             <outlet property="titleLabel" destination="p60-o5-VVQ" id="dZc-8H-qAi"/>
                                             <segue destination="3nQ-mk-2pM" kind="presentation" identifier="updateSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="EWS-mp-Vj3"/>
                                         </connections>
@@ -327,7 +327,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Image URL" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLc-Py-WcE">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Image address" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLc-Py-WcE">
                                 <rect key="frame" x="20" y="381" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -480,8 +480,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="djn-tw-l82"/>
-        <segue reference="3qa-c6-L9h"/>
+        <segue reference="jTe-hT-jFq"/>
+        <segue reference="dsE-c5-Jxu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="pencil" catalog="system" width="128" height="113"/>

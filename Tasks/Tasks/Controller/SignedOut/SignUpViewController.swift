@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    @IBAction func SignUpPressed(_ sender: Any) {
+    @IBAction func signUpPressed(_ sender: UIButton) {
         print("Sign Up button pressed")
         guard let email = emailTextField.text, !email.isEmpty,
                 let password = passwordTextField.text, !password.isEmpty else{
@@ -37,6 +37,7 @@ class SignUpViewController: UIViewController {
                 return
             }
             print("You are signed in")
+            self?.performSegue(withIdentifier: "signedUpSegue", sender: self)
 //            strongSelf.label.isHidden = true
             
         })
