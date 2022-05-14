@@ -15,9 +15,7 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     private var myTasks = [MyTask]()
-    
     private var tasksCollectionRef: CollectionReference!
-
     @IBOutlet weak var tableView: UITableView!
     @objc private func SignOutPressed(){
         do{
@@ -25,19 +23,21 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         }catch{
             print("Something went wrong")
         }
+        self.performSegue(withIdentifier: "signOutSegue", sender: self)
     }
 
     override func viewDidLoad() {
-
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.register(TaskCell.self, forCellReuseIdentifier: "TaskCell")
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
-//        super.viewDidLoad()
         tasksCollectionRef = Firestore.firestore().collection("Tasks")
-        
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let receiverVC = segue.destination as! EditTaskViewController
+//        receiverVC.titleFromMain = TaskTableViewCell.titleLabel.text
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         tasksCollectionRef.getDocuments { snapshot, error in
@@ -86,6 +86,14 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         }else{
             return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "EditTaskViewController") as? EditTaskViewController
+        vc?.urlLabel = self.myTasks[indexPath.row].url
+        vc?.titleLabel = self.myTasks[indexPath.row].title
+        vc?.descLabel = self.myTasks[indexPath.row].description
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
 

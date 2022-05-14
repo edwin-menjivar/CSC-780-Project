@@ -13,6 +13,10 @@ class EditTaskViewController: UIViewController {
     }
     
     private var db = Firestore.firestore()
+    var urlLabel = ""
+    var descLabel = ""
+    var titleLabel = ""
+    var photo = UIImageView()
 
     // Fields for updating an entry
     @IBOutlet weak var titleUpdateTF: UITextField!
@@ -35,6 +39,16 @@ class EditTaskViewController: UIViewController {
         }
         
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        titleUpdateTF.text = titleLabel
+        descUpdateTF.text = descLabel
+        urlUpdateTF.text = urlLabel
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
     // Fields for adding a new entry
     @IBOutlet weak var urlTF: UITextField!
     @IBOutlet weak var descTF: UITextField!
@@ -64,8 +78,5 @@ class EditTaskViewController: UIViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+    
 }

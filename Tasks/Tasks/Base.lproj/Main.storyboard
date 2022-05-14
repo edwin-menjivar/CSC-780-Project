@@ -44,7 +44,7 @@
                                     <constraint firstAttribute="height" constant="34" id="jOe-Dd-Poi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Don't have an account?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rfz-ve-gAa">
                                 <rect key="frame" x="47" y="733" width="184" height="41"/>
@@ -150,7 +150,7 @@
                                     <constraint firstAttribute="width" constant="382" id="axY-Ek-bbg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Already have an account?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zSS-H4-g9j">
                                 <rect key="frame" x="51" y="733" width="184" height="41"/>
@@ -198,7 +198,7 @@
             </objects>
             <point key="canvasLocation" x="727.536231884058" y="85.714285714285708"/>
         </scene>
-        <!--Tasks-->
+        <!--Main Screen View Controller-->
         <scene sceneID="UNG-CI-Wd3">
             <objects>
                 <viewController storyboardIdentifier="MainScreenViewController" id="vIZ-XS-E4Z" customClass="MainScreenViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
@@ -207,15 +207,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bI-Br-e2v">
-                                <rect key="frame" x="321" y="55" width="80" height="31"/>
+                                <rect key="frame" x="321" y="99" width="80" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="SignOutSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="3qa-c6-L9h"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lT9-LI-xsA" customClass="taskCell" customModule="Tasks" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="94" width="414" height="664"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="659"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -253,6 +250,13 @@
                                                         <constraint firstAttribute="width" constant="177.5" id="Umy-ac-r7W"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdD-c8-ad7">
+                                                    <rect key="frame" x="20" y="66" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="8kd-ii-UjZ" secondAttribute="bottom" constant="8" id="0A4-AH-2Ih"/>
@@ -269,7 +273,7 @@
                                             <outlet property="descLabel" destination="8kd-ii-UjZ" id="8rg-dJ-hA5"/>
                                             <outlet property="photo" destination="8oT-ra-6B4" id="EM1-3T-aO9"/>
                                             <outlet property="titleLabel" destination="p60-o5-VVQ" id="dZc-8H-qAi"/>
-                                            <segue destination="3nQ-mk-2pM" kind="presentation" identifier="updateSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="EWS-mp-Vj3"/>
+                                            <outlet property="urlLabel" destination="xdD-c8-ad7" id="3dx-e3-0Ym"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -285,9 +289,6 @@
                                     <fontDescription key="titleFontDescription" name=".SFUI-Semibold" family=".AppleSystemUIFont" pointSize="25"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <segue destination="2vI-pt-kFV" kind="presentation" identifier="addSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="eSh-Hx-yye"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3NH-VG-m4T"/>
@@ -297,15 +298,16 @@
                             <constraint firstItem="3NH-VG-m4T" firstAttribute="trailing" secondItem="6bI-Br-e2v" secondAttribute="trailing" constant="13" id="R4J-WA-9UD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tasks" image="pencil" catalog="system" id="8na-5l-NS6"/>
                     <navigationItem key="navigationItem" id="Qmf-ii-cCu"/>
                     <connections>
                         <outlet property="tableView" destination="lT9-LI-xsA" id="3yb-M8-buC"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="signOutSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="FxG-BG-DoJ"/>
+                        <segue destination="3nQ-mk-2pM" kind="presentation" identifier="editTaskSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="ZY1-Md-zdK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9GR-da-uvZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2447.826086956522" y="95.758928571428569"/>
+            <point key="canvasLocation" x="3357.971014492754" y="95.758928571428569"/>
         </scene>
         <!--Edit Task View Controller-->
         <scene sceneID="YTP-Re-ZHi">
@@ -315,19 +317,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ugt-dp-wgK">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ugt-dp-wgK">
                                 <rect key="frame" x="20" y="198" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Description" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rwc-gg-WEB">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rwc-gg-WEB">
                                 <rect key="frame" x="20" y="287" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Image address" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLc-Py-WcE">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLc-Py-WcE">
                                 <rect key="frame" x="20" y="381" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -364,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7y-4d-tqD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3200.0000000000005" y="95.758928571428569"/>
+            <point key="canvasLocation" x="4110.144927536232" y="95.758928571428569"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vsZ-T9-eQC">
@@ -378,7 +380,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="vIZ-XS-E4Z" kind="relationship" relationship="viewControllers" id="xf3-RL-hNz"/>
+                        <segue destination="PgU-6s-odE" kind="relationship" relationship="viewControllers" id="xf3-RL-hNz"/>
                         <segue destination="SsS-RS-sHK" kind="relationship" relationship="viewControllers" id="t9R-gZ-2Iz"/>
                     </connections>
                 </tabBarController>
@@ -415,24 +417,24 @@
         <!--Edit Task View Controller-->
         <scene sceneID="fGO-N9-nBK">
             <objects>
-                <viewController id="3nQ-mk-2pM" customClass="EditTaskViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditTaskViewController" id="3nQ-mk-2pM" customClass="EditTaskViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0bD-87-X5e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ypj-pk-cUq">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ypj-pk-cUq">
                                 <rect key="frame" x="12" y="268" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Description" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fte-fU-iya">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fte-fU-iya">
                                 <rect key="frame" x="12" y="357" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Image URL" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0A-Ih-3GJ">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0A-Ih-3GJ">
                                 <rect key="frame" x="12" y="451" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -478,10 +480,29 @@
             </objects>
             <point key="canvasLocation" x="2481.1594202898555" y="808.92857142857144"/>
         </scene>
+        <!--Tasks-->
+        <scene sceneID="edC-9a-fzj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PgU-6s-odE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tasks" image="pencil" catalog="system" id="8na-5l-NS6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sBI-Ew-icu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vIZ-XS-E4Z" kind="relationship" relationship="rootViewController" id="IUr-bN-cuf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RQj-7U-htF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2447.826086956522" y="95.758928571428569"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jTe-hT-jFq"/>
-        <segue reference="dsE-c5-Jxu"/>
+        <segue reference="dP0-F6-pTp"/>
+        <segue reference="FxG-BG-DoJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="pencil" catalog="system" width="128" height="113"/>
