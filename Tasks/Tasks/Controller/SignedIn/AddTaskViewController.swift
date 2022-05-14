@@ -21,10 +21,10 @@ class AddTaskViewController: UIViewController {
     }
     
     // Fields for adding a new entry
-    @IBOutlet weak var urlTF: UITextField!
-    @IBOutlet weak var descTF: UITextField!
     @IBOutlet weak var titleTF: UITextField!
- 
+
+    @IBOutlet weak var descTF: UITextField!
+    @IBOutlet weak var urlTF: UITextField!
     @IBAction func addTaskButtonPressed(_ sender: UIButton) {
         print("Add task button pressed")
         guard let title = titleTF.text, !title.isEmpty,

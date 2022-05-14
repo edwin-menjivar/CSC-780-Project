@@ -244,7 +244,7 @@
                                                         <constraint firstAttribute="width" constant="177.5" id="Umy-ac-r7W"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdD-c8-ad7">
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdD-c8-ad7">
                                                     <rect key="frame" x="20" y="66" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -330,8 +330,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit"/>
                                 <connections>
-                                    <action selector="addTaskButtonPressed:" destination="2vI-pt-kFV" eventType="touchUpInside" id="Ug6-GV-G9T"/>
-                                    <action selector="submitButtonPressed:" destination="2vI-pt-kFV" eventType="touchUpInside" id="9Bj-aE-RwP"/>
+                                    <action selector="addTaskButtonPressed:" destination="2vI-pt-kFV" eventType="touchUpInside" id="BlM-GK-FOG"/>
                                     <segue destination="ovA-qC-aTM" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="dP0-F6-pTp"/>
                                 </connections>
                             </button>
@@ -350,9 +349,9 @@
                     <navigationItem key="navigationItem" id="vHV-XQ-ODI"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="descTF" destination="Rwc-gg-WEB" id="f1F-VU-wm0"/>
-                        <outlet property="titleTF" destination="FLc-Py-WcE" id="yna-Pr-jWs"/>
-                        <outlet property="urlTF" destination="Ugt-dp-wgK" id="wVo-Hq-eax"/>
+                        <outlet property="descTF" destination="Rwc-gg-WEB" id="Ed3-Oh-1Sz"/>
+                        <outlet property="titleTF" destination="Ugt-dp-wgK" id="kKZ-nA-Yeb"/>
+                        <outlet property="urlTF" destination="FLc-Py-WcE" id="U8y-Rd-K5y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7y-4d-tqD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -388,7 +387,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-qI-Sbw">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-qI-Sbw">
                                 <rect key="frame" x="-3" y="44" width="421" height="769"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -488,13 +487,7 @@
                         <viewLayoutGuide key="safeArea" id="xPx-iR-qYY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="&lt; back" id="92s-MU-UTE">
-                            <connections>
-                                <segue destination="ovA-qC-aTM" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="djn-tw-l82"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="Kbe-NX-Ypo"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
