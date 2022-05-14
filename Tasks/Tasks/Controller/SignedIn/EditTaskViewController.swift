@@ -27,17 +27,14 @@ class EditTaskViewController: UIViewController {
         
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
-        let uid = Auth.auth().currentUser!.uid
-        db.collection("Taks").whereField(titleUpdateTF.text ?? "", isEqualTo: uid).getDocuments() { (querySnapshot, err) in
-          if let err = err {
-            print("Error getting documents: \(err)")
-          } else {
-            for document in querySnapshot!.documents {
-              document.reference.delete()
-            }
-          }
-        }
-        
+        //        let uid = Auth.auth().currentUser!.uid
+        var jobskill_query = db.collection("Tasks").where("title","==",titleUpdateTF.text);
+        jobskill_query.get().then(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+            doc.ref.delete();
+          });
+        });
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,35 +45,4 @@ class EditTaskViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-    
-    // Fields for adding a new entry
-    @IBOutlet weak var urlTF: UITextField!
-    @IBOutlet weak var descTF: UITextField!
-    @IBOutlet weak var titleTF: UITextField!
-    
-    @IBAction func submitButtonPressed(_ sender: UIButton) {
-    print("Add task button pressed")
-        guard let title = titleTF.text, !title.isEmpty,
-                let description = descTF.text, !description.isEmpty,
-                let url = urlTF.text, !url.isEmpty else{
-                  print("There is missing information")
-                    return
-              }
-        // Add a new document in collection "cities"
-        
-        db.collection("Tasks").addDocument(data: [
-            "title": title,
-            "description": description,
-            "url": url
-        ]) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
-            }
-        }
-        
-    }
-    
-    
 }

@@ -387,13 +387,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-qI-Sbw">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-qI-Sbw">
                                 <rect key="frame" x="-3" y="44" width="421" height="769"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <string key="text">In this application, you can add different healthy tasks that you would like to share with the world. You can add a description and an image address to display</string>
+                                <string key="text">In this application, you can add different healthy tasks that you would like to share with the world. You can add a description and an image address to display. This will have a variety of different activities to look at when you're not sure what to do. It will have sport ideas, quiet activities, and summer activities etc.</string>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -464,7 +464,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Delete"/>
                                 <connections>
-                                    <action selector="deleteButtonPressed:" destination="3nQ-mk-2pM" eventType="touchUpInside" id="V3Z-k9-CjM"/>
+                                    <action selector="deleteButtonPressed:" destination="3nQ-mk-2pM" eventType="touchUpInside" id="lbO-23-CrX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CW8-IQ-zbx">
@@ -521,7 +521,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dP0-F6-pTp"/>
+        <segue reference="01Z-SJ-xaZ"/>
         <segue reference="FxG-BG-DoJ"/>
     </inferredMetricsTieBreakers>
     <resources>
