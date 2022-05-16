@@ -589,7 +589,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Update"/>
                                 <connections>
                                     <action selector="updateButtonPressed:" destination="3nQ-mk-2pM" eventType="touchUpInside" id="OgZ-BU-KKQ"/>
-                                    <segue destination="ovA-qC-aTM" kind="presentation" identifier="deleteToMainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="01Z-SJ-xaZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38O-D4-0p0">
@@ -619,6 +618,7 @@
                         <outlet property="descUpdateTF" destination="fte-fU-iya" id="Gcc-kb-TXH"/>
                         <outlet property="titleUpdateTF" destination="Ypj-pk-cUq" id="LkN-Yb-ceN"/>
                         <outlet property="urlUpdateTF" destination="j0A-Ih-3GJ" id="twt-Lh-Ibi"/>
+                        <segue destination="ovA-qC-aTM" kind="presentation" identifier="deleteToMainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="IlP-1R-L6J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j7q-gQ-qum" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -665,7 +665,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="01Z-SJ-xaZ"/>
+        <segue reference="IlP-1R-L6J"/>
         <segue reference="FxG-BG-DoJ"/>
     </inferredMetricsTieBreakers>
     <resources>

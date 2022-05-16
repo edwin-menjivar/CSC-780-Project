@@ -53,7 +53,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                         
                         let newTask = MyTask(description: description, title: title, url: url, documendId: documentId)
                             self.myTasks.append(newTask)
-                            
                     }
                 }
             }
@@ -79,7 +78,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ s: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TaskTableViewCell {
             let myTask = self.myTasks[indexPath.row]
-//            cell.resetCell()
             cell.configureCell(with: myTask)
             return cell
 
