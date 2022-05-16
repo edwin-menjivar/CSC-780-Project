@@ -224,7 +224,7 @@
                                                         <constraint firstAttribute="height" constant="29" id="LI1-Ve-uhJ"/>
                                                         <constraint firstAttribute="width" constant="180" id="bCf-to-JBG"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -391,17 +391,16 @@
         <!--About-->
         <scene sceneID="cTQ-JU-lRI">
             <objects>
-                <viewController id="QDD-Rp-LHV" sceneMemberID="viewController">
+                <viewController id="QDD-Rp-LHV" customClass="AboutViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7J5-A9-DVR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-qI-Sbw">
-                                <rect key="frame" x="0.0" y="83" width="414" height="730"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <string key="text">In this application, you can add different healthy tasks that you would like to share with the world. You can add a description and an image address to display. This will have a variety of different activities to look at when you're not sure what to do. It will have sport ideas, quiet activities, and summer activities etc.</string>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-qI-Sbw">
+                                <rect key="frame" x="0.0" y="289" width="414" height="487"/>
+                                <string key="text">At Healthy Tasks you can add different healthy tasks that you would like to share with the world. You can add a description and an image address to display. This will have a variety of different activities to look at when you're not sure what to do. It will have sport ideas, quiet activities, and summer activities etc.</string>
                                 <color key="textColor" name="AccentColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xd-S3-1bl">
@@ -410,20 +409,30 @@
                                     <navigationItem title="About Healthy Tasks" id="yXg-Gf-zAN"/>
                                 </items>
                             </navigationBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LcZ-bp-5Hy">
+                                <rect key="frame" x="37" y="96" width="340" height="185"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OBn-Zt-hyh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="centerY" secondItem="7J5-A9-DVR" secondAttribute="centerY" id="87C-SW-R1j"/>
-                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="bottom" secondItem="OBn-Zt-hyh" secondAttribute="bottom" id="GKv-Lp-bQE"/>
-                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="leading" secondItem="7J5-A9-DVR" secondAttribute="leading" id="WMT-uZ-jAz"/>
-                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="trailing" secondItem="1Xd-S3-1bl" secondAttribute="trailing" id="hGf-IU-F8F"/>
-                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="leading" secondItem="1Xd-S3-1bl" secondAttribute="leading" id="r7w-u9-GX5"/>
-                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="top" secondItem="1Xd-S3-1bl" secondAttribute="bottom" id="sTC-Nh-Lfj"/>
-                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="centerX" secondItem="7J5-A9-DVR" secondAttribute="centerX" id="uSB-Fk-YDK"/>
+                            <constraint firstItem="LcZ-bp-5Hy" firstAttribute="centerX" secondItem="7J5-A9-DVR" secondAttribute="centerX" id="7Fh-bm-XCj"/>
+                            <constraint firstItem="1Xd-S3-1bl" firstAttribute="top" secondItem="7J5-A9-DVR" secondAttribute="topMargin" constant="-5" id="85I-9s-eJu"/>
+                            <constraint firstItem="1Xd-S3-1bl" firstAttribute="centerX" secondItem="LcZ-bp-5Hy" secondAttribute="centerX" id="EuK-Am-oe0"/>
+                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="centerX" secondItem="7J5-A9-DVR" secondAttribute="centerX" id="Lf6-2l-Ktp"/>
+                            <constraint firstItem="1Xd-S3-1bl" firstAttribute="leading" secondItem="7J5-A9-DVR" secondAttribute="leading" id="Ncz-1F-LrE"/>
+                            <constraint firstItem="LcZ-bp-5Hy" firstAttribute="leading" secondItem="OBn-Zt-hyh" secondAttribute="leading" constant="37" id="b9m-IJ-ccj"/>
+                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="top" secondItem="LcZ-bp-5Hy" secondAttribute="bottom" constant="8" symbolic="YES" id="hmV-L1-jUs"/>
+                            <constraint firstItem="OBn-Zt-hyh" firstAttribute="bottom" secondItem="OY1-qI-Sbw" secondAttribute="bottom" constant="37" id="msh-EE-nKn"/>
+                            <constraint firstItem="1Xd-S3-1bl" firstAttribute="leading" secondItem="OY1-qI-Sbw" secondAttribute="leading" id="s5A-H9-gDe"/>
+                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="top" secondItem="1Xd-S3-1bl" secondAttribute="bottom" constant="206" id="sxQ-Nt-RDY"/>
+                            <constraint firstItem="LcZ-bp-5Hy" firstAttribute="top" secondItem="1Xd-S3-1bl" secondAttribute="bottom" constant="13" id="uou-3p-gqz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="list.bullet.rectangle" catalog="system" id="Pam-6Q-Hsx"/>
+                    <connections>
+                        <outlet property="photo" destination="LcZ-bp-5Hy" id="cR2-pA-SrR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0K-4Y-aYZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -437,9 +446,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="This screen is here just to show you that I learned how to implement a tap bar." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OHb-L9-b93">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="This screen is here just to show you that I learned how to implement a tap bar." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OHb-L9-b93">
                                 <rect key="frame" x="0.0" y="83" width="414" height="152"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <color key="textColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -468,7 +476,7 @@
                                                         <constraint firstAttribute="height" constant="29" id="C9C-9g-y5q"/>
                                                         <constraint firstAttribute="width" constant="180" id="x2u-6u-D37"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

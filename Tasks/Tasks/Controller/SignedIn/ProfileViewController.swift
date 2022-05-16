@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
         tasksCollectionRef = Firestore.firestore().collection("Tasks")
-        textView.text = "These are \(userEmail ?? "")'s Healthy Tasks"
+        textView.text = "\(userEmail ?? "")'s Healthy Tasks"
 
     }
     
