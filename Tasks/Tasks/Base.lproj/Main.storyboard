@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -197,7 +198,7 @@
             </objects>
             <point key="canvasLocation" x="727.536231884058" y="85.714285714285708"/>
         </scene>
-        <!--Main Screen View Controller-->
+        <!--Healthy Tasks-->
         <scene sceneID="UNG-CI-Wd3">
             <objects>
                 <viewController storyboardIdentifier="MainScreenViewController" id="vIZ-XS-E4Z" customClass="MainScreenViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
@@ -284,7 +285,7 @@
                         <viewLayoutGuide key="safeArea" id="3NH-VG-m4T"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fxc-jv-kmh">
+                    <navigationItem key="navigationItem" title="Healthy Tasks" id="fxc-jv-kmh">
                         <barButtonItem key="leftBarButtonItem" title="Add Task" id="1QW-YW-7Na">
                             <connections>
                                 <segue destination="2vI-pt-kFV" kind="show" id="HII-52-MMr"/>
@@ -311,7 +312,7 @@
             <objects>
                 <viewController storyboardIdentifier="AddTaskViewController" id="2vI-pt-kFV" customClass="AddTaskViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NFG-b9-TOl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ugt-dp-wgK">
@@ -395,24 +396,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-qI-Sbw">
-                                <rect key="frame" x="-3" y="44" width="421" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-qI-Sbw">
+                                <rect key="frame" x="0.0" y="83" width="414" height="730"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <string key="text">In this application, you can add different healthy tasks that you would like to share with the world. You can add a description and an image address to display. This will have a variety of different activities to look at when you're not sure what to do. It will have sport ideas, quiet activities, and summer activities etc.</string>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="textColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xd-S3-1bl">
+                                <rect key="frame" x="0.0" y="39" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="About Healthy Tasks" id="yXg-Gf-zAN"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OBn-Zt-hyh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="centerY" secondItem="7J5-A9-DVR" secondAttribute="centerY" id="87C-SW-R1j"/>
+                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="bottom" secondItem="OBn-Zt-hyh" secondAttribute="bottom" id="GKv-Lp-bQE"/>
+                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="leading" secondItem="7J5-A9-DVR" secondAttribute="leading" id="WMT-uZ-jAz"/>
+                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="trailing" secondItem="1Xd-S3-1bl" secondAttribute="trailing" id="hGf-IU-F8F"/>
+                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="leading" secondItem="1Xd-S3-1bl" secondAttribute="leading" id="r7w-u9-GX5"/>
+                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="top" secondItem="1Xd-S3-1bl" secondAttribute="bottom" id="sTC-Nh-Lfj"/>
+                            <constraint firstItem="OY1-qI-Sbw" firstAttribute="centerX" secondItem="7J5-A9-DVR" secondAttribute="centerX" id="uSB-Fk-YDK"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="list.bullet.rectangle" catalog="system" id="Pam-6Q-Hsx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0K-4Y-aYZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="780" y="817"/>
+            <point key="canvasLocation" x="779.71014492753625" y="816.96428571428567"/>
         </scene>
         <!--Profile-->
         <scene sceneID="LsD-20-1pM">
@@ -422,17 +437,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="This screen is here just to show you that I learned how to implement a tap bar." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OHb-L9-b93">
-                                <rect key="frame" x="0.0" y="44" width="421" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This screen is here just to show you that I learned how to implement a tap bar." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OHb-L9-b93">
+                                <rect key="frame" x="0.0" y="83" width="414" height="730"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="textColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YpR-fm-lnt">
+                                <rect key="frame" x="0.0" y="39" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Profile" id="v8V-j9-I0Q"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Xpu-2L-Oyu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OHb-L9-b93" firstAttribute="top" secondItem="YpR-fm-lnt" secondAttribute="bottom" id="3nu-zt-raS"/>
+                            <constraint firstItem="OHb-L9-b93" firstAttribute="bottom" secondItem="Xpu-2L-Oyu" secondAttribute="bottom" id="KmT-KK-0Bu"/>
+                            <constraint firstItem="OHb-L9-b93" firstAttribute="centerX" secondItem="CFU-Ks-3V4" secondAttribute="centerX" id="MBm-dj-wgn"/>
+                            <constraint firstItem="OHb-L9-b93" firstAttribute="leading" secondItem="CFU-Ks-3V4" secondAttribute="leading" id="czX-MB-wIQ"/>
+                            <constraint firstItem="OHb-L9-b93" firstAttribute="leading" secondItem="YpR-fm-lnt" secondAttribute="leading" id="dCe-Zi-zbv"/>
+                            <constraint firstItem="OHb-L9-b93" firstAttribute="centerY" secondItem="CFU-Ks-3V4" secondAttribute="centerY" id="lGm-w9-gM9"/>
+                            <constraint firstItem="OHb-L9-b93" firstAttribute="trailing" secondItem="YpR-fm-lnt" secondAttribute="trailing" id="r4J-uy-ueX"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle" catalog="system" id="jBA-tK-bw7"/>
                 </viewController>
@@ -445,7 +474,7 @@
             <objects>
                 <viewController storyboardIdentifier="EditTaskViewController" id="3nQ-mk-2pM" customClass="EditTaskViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0bD-87-X5e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ypj-pk-cUq">
@@ -466,6 +495,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CW8-IQ-zbx">
+                                <rect key="frame" x="232" y="592" width="82" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Update"/>
+                                <connections>
+                                    <action selector="updateButtonPressed:" destination="3nQ-mk-2pM" eventType="touchUpInside" id="OgZ-BU-KKQ"/>
+                                    <segue destination="ovA-qC-aTM" kind="presentation" identifier="deleteToMainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="01Z-SJ-xaZ"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38O-D4-0p0">
                                 <rect key="frame" x="75" y="592" width="82" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -473,16 +512,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Delete"/>
                                 <connections>
                                     <action selector="deleteButtonPressed:" destination="3nQ-mk-2pM" eventType="touchUpInside" id="lbO-23-CrX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CW8-IQ-zbx">
-                                <rect key="frame" x="232" y="592" width="82" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Update"/>
-                                <connections>
-                                    <action selector="updateButtonPressed:" destination="3nQ-mk-2pM" eventType="touchUpInside" id="3Q6-Ob-R3u"/>
-                                    <segue destination="ovA-qC-aTM" kind="presentation" identifier="deleteToMainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="01Z-SJ-xaZ"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gh0-Nz-zql">
@@ -530,6 +559,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ZY1-Md-zdK"/>
         <segue reference="01Z-SJ-xaZ"/>
         <segue reference="FxG-BG-DoJ"/>
     </inferredMetricsTieBreakers>
@@ -537,6 +567,9 @@
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

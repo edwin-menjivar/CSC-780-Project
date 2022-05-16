@@ -29,8 +29,4 @@ class TaskTableViewCell: UITableViewCell {
         }
         
     }
-    
-//    override func prepareForReuse(){
-//
-//    }
 }
