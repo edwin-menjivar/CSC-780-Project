@@ -33,6 +33,7 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
         tasksCollectionRef = Firestore.firestore().collection("Tasks")
+
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,8 +43,11 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         tasksCollectionRef.getDocuments { snapshot, error in
+            self.myTasks.removeAll()
             if let err = error{
                 debugPrint("Error fetching docs: \(err)")
+                self.tableView.reloadData()
+
             } else{
                 guard let snap = snapshot else {return}
                 for document in snap.documents{
@@ -51,16 +55,14 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
                     let title = data["title"] as? String ?? ""
                     let description = data["description"] as? String ?? ""
                     let url = data["url"] as? String ?? ""
-                    let documentId = document.documentID
+                    let documentId = document.documentID 
                     
                     let newTask = MyTask(description: description, title: title, url: url, documendId: documentId)
-                    
                     self.myTasks.append(newTask)
-                    
                 }
-                self.tableView.reloadData()
-                
             }
+            self.tableView.reloadData()
+
         }
     }
 
@@ -81,6 +83,7 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ s: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TaskTableViewCell {
             let myTask = self.myTasks[indexPath.row]
+//            cell.resetCell()
             cell.configureCell(with: myTask)
             return cell
 
@@ -94,9 +97,13 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         vc?.urlLabel = self.myTasks[indexPath.row].url
         vc?.titleLabel = self.myTasks[indexPath.row].title
         vc?.descLabel = self.myTasks[indexPath.row].description
+        vc?.docLabel = self.myTasks[indexPath.row].documendId
+        
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
+    
+   
 }
 
 

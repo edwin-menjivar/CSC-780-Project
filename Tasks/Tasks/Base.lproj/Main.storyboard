@@ -251,6 +251,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqB-q7-hqw">
+                                                    <rect key="frame" x="70" y="66" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="8kd-ii-UjZ" secondAttribute="bottom" constant="8" id="0A4-AH-2Ih"/>
@@ -265,6 +272,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descLabel" destination="8kd-ii-UjZ" id="8rg-dJ-hA5"/>
+                                            <outlet property="docLabel" destination="jqB-q7-hqw" id="YF6-Rw-nfl"/>
                                             <outlet property="photo" destination="8oT-ra-6B4" id="EM1-3T-aO9"/>
                                             <outlet property="titleLabel" destination="p60-o5-VVQ" id="dZc-8H-qAi"/>
                                             <outlet property="urlLabel" destination="xdD-c8-ad7" id="3dx-e3-0Ym"/>
@@ -318,7 +326,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLc-Py-WcE">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image address or n/a if no image" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLc-Py-WcE">
                                 <rect key="frame" x="20" y="381" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -452,7 +460,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0A-Ih-3GJ">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image address or n/a if no image" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0A-Ih-3GJ">
                                 <rect key="frame" x="12" y="451" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -473,7 +481,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Update"/>
                                 <connections>
-                                    <segue destination="ovA-qC-aTM" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="01Z-SJ-xaZ"/>
+                                    <action selector="updateButtonPressed:" destination="3nQ-mk-2pM" eventType="touchUpInside" id="3Q6-Ob-R3u"/>
+                                    <segue destination="ovA-qC-aTM" kind="presentation" identifier="deleteToMainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="01Z-SJ-xaZ"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gh0-Nz-zql">
