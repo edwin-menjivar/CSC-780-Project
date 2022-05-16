@@ -13,6 +13,7 @@ class EditTaskViewController: UIViewController {
     }
     
     private var db = Firestore.firestore()
+    let userID = Auth.auth().currentUser!.uid
     var urlLabel = ""
     var descLabel = ""
     var titleLabel = ""
@@ -28,10 +29,6 @@ class EditTaskViewController: UIViewController {
         
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
-
-//        let uid = Auth.auth().currentUser!.uid
-
-        print(docLabel)
         showDeleteTask(docLabel: docLabel)
         
     }
@@ -72,17 +69,46 @@ class EditTaskViewController: UIViewController {
         let alert = UIAlertController(title: "Delete Task", message: "Would you like to delete task", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: {_ in
             //Place code here
-            self.db.collection("Tasks").document(docLabel).delete { err in
+            let uid = Auth.auth().currentUser!.uid
+            self.db.collection("Tasks").getDocuments { snapshot, err in
                 if let err = err {
-                  print("Error removing document: \(err)")
-                }
-                else {
-                  print("Document successfully removed!")
+                    print("Error getting documents: \(err)")
+                } else {
+                    guard let snap = snapshot else {return}
+                    var trace = false
+                    for document in snap.documents{
+                        print("Inside docs")
+                        let data = document.data()
+                        let title = data["title"] as? String ?? ""
+                        let uidd = data["uid"] as? String ?? ""
+                        if (self.titleLabel == title && uid == uidd){
+                            print("Found one")
+                            document.reference.delete()
+                            trace = true
+                        }
+                    }
+                    if(trace == false){
+                        self.couldNotDeleteTask()
+                    }
+                    self.performSegue(withIdentifier: "deleteToMainSegue", sender: self)
                 }
             }
-            self.performSegue(withIdentifier: "deleteToMainSegue", sender: self)
+//            self.db.collection("Tasks").document(docLabel).delete{ err in
+//                if let err = err {
+//                  print("Error removing document: \(err)")
+//                }
+//                else {
+//                  print("Document successfully removed!")
+//                }
+//            }
+            
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in}))
+        present(alert, animated: true)
+    }
+    func couldNotDeleteTask(){
+        let alert = UIAlertController(title: "Error", message: "You can only delete your own taks", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {_ in}))
         present(alert, animated: true)
     }
     

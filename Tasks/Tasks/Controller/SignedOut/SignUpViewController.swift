@@ -37,21 +37,8 @@ class SignUpViewController: UIViewController {
                 return
             }
             print("You are signed in")
-            self?.performSegue(withIdentifier: "signedUpSegue", sender: self)
-//            strongSelf.label.isHidden = true
-            
+            self?.performSegue(withIdentifier: "signedUpSegue", sender: self)            
         })
-//        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {[weak self] result, error in
-//            guard let strongSelf = self else{
-//                return
-//            }
-//            guard error == nil else{
-//                strongSelf.couldNotCreateAccount(email: email, password: password)
-//                return
-//            }
-//            print("You are signed in")
-//
-//        })
     }
     func couldNotCreateAccount(email: String, password: String){
         let alert = UIAlertController(title: "Error", message: "Could not create an account", preferredStyle: .alert)

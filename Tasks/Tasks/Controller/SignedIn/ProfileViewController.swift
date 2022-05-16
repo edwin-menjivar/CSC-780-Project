@@ -6,7 +6,7 @@ import Foundation
 
 
 
-class MainScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -16,23 +16,20 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
 
     private var myTasks = [MyTask]()
     private var tasksCollectionRef: CollectionReference!
-    @IBOutlet weak var tableView: UITableView!
+    let userEmail = Auth.auth().currentUser!.email
+    let uid = Auth.auth().currentUser!.uid
     
-    @IBAction func signOutPressed(_ sender: UIBarButtonItem) {
-        do{
-            try FirebaseAuth.Auth.auth().signOut()
-        }catch{
-            print("Something went wrong")
-        }
-        self.performSegue(withIdentifier: "signOutSegue", sender: self)
-    }
+    @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
         tasksCollectionRef = Firestore.firestore().collection("Tasks")
+        textView.text = "These are \(userEmail ?? "")'s Healthy Tasks"
 
     }
     
@@ -47,13 +44,17 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
                 guard let snap = snapshot else {return}
                 for document in snap.documents{
                     let data = document.data()
-                    let title = data["title"] as? String ?? ""
-                    let description = data["description"] as? String ?? ""
-                    let url = data["url"] as? String ?? ""
-                    let documentId = document.documentID 
-                    
-                    let newTask = MyTask(description: description, title: title, url: url, documendId: documentId)
-                    self.myTasks.append(newTask)
+                    let uidd = data["uid"] as? String ?? ""
+                    if(self.uid == uidd){
+                        let title = data["title"] as? String ?? ""
+                        let description = data["description"] as? String ?? ""
+                        let url = data["url"] as? String ?? ""
+                        let documentId = document.documentID
+                        
+                        let newTask = MyTask(description: description, title: title, url: url, documendId: documentId)
+                            self.myTasks.append(newTask)
+                            
+                    }
                 }
             }
             self.tableView.reloadData()
@@ -96,9 +97,6 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-    
-    
-   
 }
 
 

@@ -14,6 +14,8 @@ class AddTaskViewController: UIViewController {
     
     private var db = Firestore.firestore()
 
+    let userID = Auth.auth().currentUser!.uid
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +40,8 @@ class AddTaskViewController: UIViewController {
         db.collection("Tasks").addDocument(data: [
             "title": title,
             "description": description,
-            "url": url
+            "url": url,
+            "uid": userID
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
