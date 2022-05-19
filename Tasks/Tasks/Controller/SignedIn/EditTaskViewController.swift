@@ -19,6 +19,8 @@ class EditTaskViewController: UIViewController {
     var titleLabel = ""
     var docLabel = ""
     var photo = UIImageView()
+    
+//    var alertWindows = AlertWindows()
 
     // Fields for updating an entry
     @IBOutlet weak var titleUpdateTF: UITextField!
@@ -35,44 +37,8 @@ class EditTaskViewController: UIViewController {
     
     
     @IBAction func updateButtonPressed(_ sender: UIButton) {
-        guard let title = titleUpdateTF.text, !title.isEmpty,
-                let description = descUpdateTF.text, !description.isEmpty,
-                let url = urlUpdateTF.text, !url.isEmpty else{
-                  print("There is missing information")
-                    return
-              }
+        showUpdateTask(docLabel: docLabel)
         
-        self.db.collection("Tasks").document(self.docLabel).getDocument { snapshot, err in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                guard let snap = snapshot else {return}
-                var trace = false
-                
-                let data = snap.data()
-                let uidd = data!["uid"] as? String ?? ""
-                if (self.uid == uidd){
-                    trace = true
-                    self.db.collection("Tasks").document(self.docLabel).updateData([
-                        "title": title,
-                        "description": description,
-                        "url": url,
-                    ]) { err in
-                        if let err = err {
-                            print("Error updating document: \(err)")
-                            
-                        } else {
-                            print("Document successfully updated")
-                        }
-                    }
-                    
-                    self.performSegue(withIdentifier: "deleteToMainSegue", sender: self)
-                }
-                if(trace == false){
-                    self.couldNotDeleteTask()
-                }
-            }
-        }
 //            db.collection("Tasks").document(docLabel).updateData([
 //                "title": title,
 //                "description": description,
@@ -95,6 +61,56 @@ class EditTaskViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    func showUpdateTask(docLabel: String){
+        let alert = UIAlertController(title: "Update Task", message: "Would you like to update task", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Update", style: .default, handler: {_ in
+            //Place code here
+            guard let title = self.titleUpdateTF.text, !title.isEmpty,
+                  let description = self.descUpdateTF.text, !description.isEmpty,
+                  let url = self.urlUpdateTF.text, !url.isEmpty else{
+                      print("There is missing information")
+                        return
+                  }
+            
+            self.db.collection("Tasks").document(self.docLabel).getDocument { snapshot, err in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    guard let snap = snapshot else {return}
+                    var trace = false
+                    
+                    let data = snap.data()
+                    let uidd = data!["uid"] as? String ?? ""
+                    if (self.uid == uidd){
+                        trace = true
+                        self.db.collection("Tasks").document(self.docLabel).updateData([
+                            "title": title,
+                            "description": description,
+                            "url": url,
+                        ]) { err in
+                            if let err = err {
+                                print("Error updating document: \(err)")
+                                
+                            } else {
+                                print("Document successfully updated")
+                            }
+                        }
+                        
+                        self.performSegue(withIdentifier: "deleteToMainSegue", sender: self)
+                    }
+                    if(trace == false){
+                        self.couldNotDeleteTask()
+                    }
+                }
+            }
+            
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in}))
+        present(alert, animated: true)
+    }
+
     
     func showDeleteTask(docLabel: String){
         let alert = UIAlertController(title: "Delete Task", message: "Would you like to delete task", preferredStyle: .alert)

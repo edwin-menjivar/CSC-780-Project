@@ -25,6 +25,7 @@
 		02995584282D1A16001E01A5 /* MainScreenVeiwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02995583282D1A16001E01A5 /* MainScreenVeiwController.swift */; };
 		029F256F28322B7A003E8B77 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F256E28322B7A003E8B77 /* ProfileViewController.swift */; };
 		029F2571283236D8003E8B77 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F2570283236D8003E8B77 /* AboutViewController.swift */; };
+		029F25732832CADB003E8B77 /* AlertWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F25722832CADB003E8B77 /* AlertWindows.swift */; };
 		2ED29C66B54C3143C2BA6262 /* Pods_Tasks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9999CDFB95544AF68A35A8E /* Pods_Tasks.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		02995583282D1A16001E01A5 /* MainScreenVeiwController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenVeiwController.swift; sourceTree = "<group>"; };
 		029F256E28322B7A003E8B77 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		029F2570283236D8003E8B77 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		029F25722832CADB003E8B77 /* AlertWindows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWindows.swift; sourceTree = "<group>"; };
 		2FCF6005DA19CFBA031691CB /* Pods-Tasks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasks.release.xcconfig"; path = "Target Support Files/Pods-Tasks/Pods-Tasks.release.xcconfig"; sourceTree = "<group>"; };
 		B7AB1C83E3150030E0ED6F80 /* Pods-Tasks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasks.debug.xcconfig"; path = "Target Support Files/Pods-Tasks/Pods-Tasks.debug.xcconfig"; sourceTree = "<group>"; };
 		F9999CDFB95544AF68A35A8E /* Pods_Tasks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				02254C9D282DD64F007B4A2E /* TaskTableViewCell.swift */,
+				029F25722832CADB003E8B77 /* AlertWindows.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				02191A18282D2B0C00802A43 /* Models.swift in Sources */,
 				02995580282CFE47001E01A5 /* SignUpViewController.swift in Sources */,
 				02191A16282D2A9500802A43 /* Networking.swift in Sources */,
+				029F25732832CADB003E8B77 /* AlertWindows.swift in Sources */,
 				02995584282D1A16001E01A5 /* MainScreenVeiwController.swift in Sources */,
 				029954D22818C86E001E01A5 /* SceneDelegate.swift in Sources */,
 				02254CA0282DDCD2007B4A2E /* Extensions.swift in Sources */,
